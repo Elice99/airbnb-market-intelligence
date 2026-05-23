@@ -1,0 +1,29 @@
+# Virtual environment
+venv/
+
+# Environment variables (NEVER commit this)
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Data files (too large for Git)
+data/raw/
+data/processed/
+
+# Saved models
+models/*.pkl
+models/*.joblib
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/

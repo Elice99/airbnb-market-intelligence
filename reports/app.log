@@ -1,0 +1,55 @@
+2026-05-21T23:49:11.728658+0100 | INFO | Database engine created successfully.
+2026-05-21T23:49:16.129814+0100 | ERROR | Database connection test FAILED: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-05-22T00:11:03.802938+0100 | INFO | Database engine created successfully.
+2026-05-22T00:11:04.284280+0100 | ERROR | Database connection test FAILED: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-05-23T14:26:16.240972+0100 | INFO | Database engine created successfully.
+2026-05-23T14:26:16.846956+0100 | ERROR | Database connection test FAILED: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-05-23T14:44:36.035302+0100 | INFO | Database engine created successfully.
+2026-05-23T14:44:36.112669+0100 | ERROR | Database connection test FAILED: (psycopg2.OperationalError) could not translate host name "1995@localhost" to address: Non-recoverable failure in name resolution
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-05-23T14:47:45.189333+0100 | INFO | Database engine created successfully.
+2026-05-23T14:47:45.236455+0100 | ERROR | Database connection test FAILED: (psycopg2.OperationalError) could not translate host name "1995@localhost" to address: Non-recoverable failure in name resolution
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-05-23T15:10:57.609331+0100 | INFO | Database engine created successfully.
+2026-05-23T15:10:58.467080+0100 | ERROR | Database connection test FAILED: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "airbnb_db" does not exist
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-05-23T15:13:05.062870+0100 | INFO | Database engine created successfully.
+2026-05-23T15:13:05.675929+0100 | ERROR | Database connection test FAILED: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "airbnb_db" does not exist
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-05-23T15:16:04.181065+0100 | INFO | Database engine created successfully.
+2026-05-23T15:16:04.586720+0100 | ERROR | Database connection test FAILED: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "airbnb_db" does not exist
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-05-23T15:30:32.563916+0100 | INFO | Database engine created successfully.
+2026-05-23T15:30:33.449605+0100 | ERROR | Database connection test FAILED: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "airbnb_db" does not exist
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-05-23T15:32:40.332927+0100 | INFO | Database engine created successfully.
+2026-05-23T15:32:40.738666+0100 | ERROR | Database connection test FAILED: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "airbnb_db" does not exist
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-05-23T15:39:07.678546+0100 | INFO | Database engine created successfully.
+2026-05-23T15:39:08.016406+0100 | ERROR | Database connection test FAILED: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "airbnb_db" does not exist
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-05-23T15:40:24.589822+0100 | INFO | Database engine created successfully.
+2026-05-23T15:40:25.100113+0100 | ERROR | Database connection test FAILED: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "airbnb_db" does not exist
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-05-23T15:43:53.507478+0100 | INFO | Database engine created successfully.
+2026-05-23T15:43:53.852226+0100 | INFO | Database connection test PASSED.
+2026-05-23T15:48:16.019328+0100 | INFO | Database engine created successfully.
+2026-05-23T15:48:16.544906+0100 | INFO | Database connection test PASSED.

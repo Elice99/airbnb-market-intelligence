@@ -1,0 +1,35 @@
+# Data
+pandas
+numpy
+
+# Database
+sqlalchemy
+psycopg2-binary
+
+# Machine Learning
+scikit-learn
+xgboost
+joblib
+
+# Backend
+fastapi
+uvicorn
+pydantic
+
+# Frontend
+streamlit
+
+# Visualization
+matplotlib
+seaborn
+plotly
+folium
+
+# Environment
+python-dotenv
+
+# Testing
+pytest
+
+# Utilities
+loguru
