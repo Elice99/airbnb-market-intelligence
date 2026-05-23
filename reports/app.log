@@ -53,3 +53,27 @@ connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection re
 2026-05-23T15:43:53.852226+0100 | INFO | Database connection test PASSED.
 2026-05-23T15:48:16.019328+0100 | INFO | Database engine created successfully.
 2026-05-23T15:48:16.544906+0100 | INFO | Database connection test PASSED.
+2026-05-23T18:34:24.888819+0100 | INFO | Loading raw data from: data\raw\airbnb_2019.csv
+2026-05-23T18:34:24.891604+0100 | ERROR | File not found: data\raw\airbnb_2019.csv
+2026-05-23T18:39:58.016149+0100 | INFO | Loading raw data from: data\raw\airbnb_2019.csv
+2026-05-23T18:39:58.019591+0100 | ERROR | File not found: data\raw\airbnb_2019.csv
+2026-05-23T18:41:37.055257+0100 | INFO | Loading raw data from: data\raw\AB_NYC_2019.csv
+2026-05-23T18:41:37.957133+0100 | INFO | Data loaded successfully. Rows: 48,895 | Columns: 16
+2026-05-23T18:49:45.601290+0100 | INFO | Loading raw data from: data\raw\AB_NYC_2019.csv
+2026-05-23T18:49:46.195016+0100 | INFO | Data loaded successfully. Rows: 48,895 | Columns: 16
+2026-05-23T18:49:46.196779+0100 | INFO | === SHAPE ===
+2026-05-23T18:49:46.197646+0100 | INFO | === COLUMNS & DATA TYPES ===
+2026-05-23T18:49:46.209170+0100 | INFO | === MISSING VALUES ===
+2026-05-23T18:49:46.269797+0100 | INFO | === DUPLICATES ===
+2026-05-23T18:49:46.354985+0100 | INFO | === NUMERIC COLUMN SUMMARY ===
+2026-05-23T18:49:46.444391+0100 | INFO | === CATEGORICAL COLUMN SUMMARY ===
+2026-05-23T18:49:46.638967+0100 | INFO | === PRICE COLUMN DEEP DIVE ===
+2026-05-23T18:49:46.661127+0100 | INFO | === SAVING SCHEMA REPORT ===
+2026-05-23T18:49:46.684399+0100 | INFO | Schema report saved to: reports/schema_report.txt
+2026-05-23T19:10:04.687970+0100 | INFO | Loading raw data from: data\raw\AB_NYC_2019.csv
+2026-05-23T19:10:05.198009+0100 | INFO | Data loaded successfully. Rows: 48,895 | Columns: 16
+2026-05-23T19:10:05.198418+0100 | INFO | Loading 48,895 rows into PostgreSQL table: 'raw_listings'
+2026-05-23T19:10:05.340330+0100 | INFO | Database engine created successfully.
+2026-05-23T19:10:45.558482+0100 | INFO | Successfully loaded 48,895 rows into 'raw_listings'.
+2026-05-23T19:10:45.569740+0100 | INFO | Database engine created successfully.
+2026-05-23T19:10:46.508004+0100 | INFO | Table 'raw_listings' verified: 48,895 rows.

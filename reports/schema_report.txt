@@ -1,0 +1,23 @@
+AIRBNB 2019 — RAW DATASET SCHEMA REPORT
+==================================================
+
+Shape: 48,895 rows × 16 columns
+
+Column Name | dtype | Missing Count | Missing %
+------------------------------------------------------------
+id | int64 | 0 | 0.00%
+name | str | 16 | 0.03%
+host_id | int64 | 0 | 0.00%
+host_name | str | 21 | 0.04%
+neighbourhood_group | str | 0 | 0.00%
+neighbourhood | str | 0 | 0.00%
+latitude | float64 | 0 | 0.00%
+longitude | float64 | 0 | 0.00%
+room_type | str | 0 | 0.00%
+price | int64 | 0 | 0.00%
+minimum_nights | int64 | 0 | 0.00%
+number_of_reviews | int64 | 0 | 0.00%
+last_review | str | 10052 | 20.56%
+reviews_per_month | float64 | 10052 | 20.56%
+calculated_host_listings_count | int64 | 0 | 0.00%
+availability_365 | int64 | 0 | 0.00%
