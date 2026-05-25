@@ -102,3 +102,55 @@ connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection re
 2026-05-25T13:06:13.132898+0100 | INFO | Successfully loaded 48,884 rows into 'cleaned_listings'.
 2026-05-25T13:06:13.134479+0100 | INFO | Database engine created successfully.
 2026-05-25T13:06:13.354236+0100 | INFO | Table 'cleaned_listings' verified: 48,884 rows.
+2026-05-25T14:01:57.977292+0100 | INFO | STEP 1: Loading raw data...
+2026-05-25T14:01:57.978717+0100 | INFO | Loading raw data from: data\raw\AB_NYC_2019.csv
+2026-05-25T14:01:58.534933+0100 | INFO | Data loaded successfully. Rows: 48,895 | Columns: 16
+2026-05-25T14:01:58.539965+0100 | INFO | STEP 2: Cleaning...
+2026-05-25T14:01:58.541083+0100 | INFO | Starting cleaning pipeline...
+2026-05-25T14:01:58.617944+0100 | INFO | drop_zero_prices: Dropped 11 rows with price = 0.
+2026-05-25T14:01:58.686441+0100 | INFO | cap_price_outliers: Capping price at 99th percentile = $799.00
+2026-05-25T14:01:58.694307+0100 | INFO | cap_minimum_nights: Capping minimum_nights at 99th percentile = 45.0
+2026-05-25T14:01:58.725083+0100 | INFO | fill_missing_text: Filled missing name and host_name.
+2026-05-25T14:01:58.737937+0100 | INFO | fix_reviews_columns: Filled 10,052 missing review values.
+2026-05-25T14:01:58.790775+0100 | INFO | convert_last_review_date: 38,833 valid dates | 10,051 NaT (no review).
+2026-05-25T14:01:58.842906+0100 | INFO | strip_whitespace: Stripped whitespace from 5 text columns.
+2026-05-25T14:01:58.868223+0100 | INFO | standardize_text_case: Standardized neighbourhood columns.
+2026-05-25T14:01:58.871449+0100 | INFO | reset_dataframe_index: Index reset.
+2026-05-25T14:01:58.874562+0100 | INFO | Cleaning pipeline complete. Final shape: 48,884 rows × 16 columns.
+2026-05-25T14:01:58.888845+0100 | INFO | === VALIDATION REPORT ===
+2026-05-25T14:01:59.850289+0100 | INFO | Saved to: data\processed\airbnb_cleaned.csv
+2026-05-25T14:01:59.851513+0100 | INFO | STEP 3: Feature engineering...
+2026-05-25T14:01:59.852147+0100 | INFO | Starting feature engineering pipeline...
+2026-05-25T14:01:59.857191+0100 | INFO | add_price_per_review: Created price_per_review column.
+2026-05-25T14:01:59.860827+0100 | INFO | add_is_reviewed: 38,833 listings have reviews (79.4%).
+2026-05-25T14:01:59.864787+0100 | INFO | add_host_superhost_proxy: 5,635 proxy superhosts (11.5%).
+2026-05-25T14:01:59.871252+0100 | INFO | add_availability_ratio: Created availability_ratio column.
+2026-05-25T14:01:59.888852+0100 | INFO | add_availability_category: Created availability_category column.
+2026-05-25T14:01:59.946709+0100 | INFO | add_review_score_category: Distribution:
+review_score_category
+Low           22929
+Medium        10280
+No Reviews    10051
+High           5624
+Name: count, dtype: int64
+2026-05-25T14:01:59.955810+0100 | INFO | add_price_category: Distribution:
+price_category
+Mid        18710
+Budget     15236
+Premium    11581
+Luxury      3357
+Name: count, dtype: int64
+2026-05-25T14:01:59.958355+0100 | INFO | add_is_long_term: 4,505 long-term listings (9.2%).
+2026-05-25T14:01:59.964667+0100 | INFO | add_name_length: Avg name length = 36.9 chars.
+2026-05-25T14:02:00.005300+0100 | INFO | add_date_features: Date features created. 38,833 listings have a valid last_review date.
+2026-05-25T14:02:00.008531+0100 | INFO | Feature engineering complete. Added 12 new columns. Total columns: 28
+2026-05-25T14:02:01.721654+0100 | INFO | Saved to: data\processed\airbnb_featured.csv
+2026-05-25T14:02:01.727578+0100 | INFO | STEP 4: Loading to PostgreSQL...
+2026-05-25T14:02:01.729923+0100 | INFO | Loading 48,884 rows into PostgreSQL table: 'cleaned_listings'
+2026-05-25T14:02:02.054442+0100 | INFO | Database engine created successfully.
+2026-05-25T14:03:02.279314+0100 | INFO | Successfully loaded 48,884 rows into 'cleaned_listings'.
+2026-05-25T14:03:02.280233+0100 | INFO | Loading 48,884 rows into PostgreSQL table: 'featured_listings'
+2026-05-25T14:03:02.281205+0100 | INFO | Database engine created successfully.
+2026-05-25T14:03:51.311192+0100 | INFO | Successfully loaded 48,884 rows into 'featured_listings'.
+2026-05-25T14:03:51.312176+0100 | INFO | Database engine created successfully.
+2026-05-25T14:03:51.551969+0100 | INFO | Table 'featured_listings' verified: 48,884 rows.
