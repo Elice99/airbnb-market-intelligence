@@ -77,3 +77,28 @@ connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection re
 2026-05-23T19:10:45.558482+0100 | INFO | Successfully loaded 48,895 rows into 'raw_listings'.
 2026-05-23T19:10:45.569740+0100 | INFO | Database engine created successfully.
 2026-05-23T19:10:46.508004+0100 | INFO | Table 'raw_listings' verified: 48,895 rows.
+2026-05-25T13:05:37.019503+0100 | INFO | STEP 1: Loading raw data...
+2026-05-25T13:05:37.021177+0100 | INFO | Loading raw data from: data\raw\AB_NYC_2019.csv
+2026-05-25T13:05:37.525875+0100 | INFO | Data loaded successfully. Rows: 48,895 | Columns: 16
+2026-05-25T13:05:37.527107+0100 | INFO | STEP 2: Running cleaning pipeline...
+2026-05-25T13:05:37.529748+0100 | INFO | Starting cleaning pipeline...
+2026-05-25T13:05:37.597401+0100 | INFO | drop_zero_prices: Dropped 11 rows with price = 0.
+2026-05-25T13:05:37.607839+0100 | INFO | cap_price_outliers: Capping price at 99th percentile = $799.00
+2026-05-25T13:05:37.616233+0100 | INFO | cap_minimum_nights: Capping minimum_nights at 99th percentile = 45.0
+2026-05-25T13:05:37.657876+0100 | INFO | fill_missing_text: Filled missing name and host_name.
+2026-05-25T13:05:37.666900+0100 | INFO | fix_reviews_columns: Filled 10,052 missing review values.
+2026-05-25T13:05:37.711430+0100 | INFO | convert_last_review_date: 38,833 valid dates | 10,051 NaT (no review).
+2026-05-25T13:05:37.747811+0100 | INFO | strip_whitespace: Stripped whitespace from 5 text columns.
+2026-05-25T13:05:37.765262+0100 | INFO | standardize_text_case: Standardized neighbourhood columns.
+2026-05-25T13:05:37.766760+0100 | INFO | reset_dataframe_index: Index reset.
+2026-05-25T13:05:37.768030+0100 | INFO | Cleaning pipeline complete. Final shape: 48,884 rows × 16 columns.
+2026-05-25T13:05:37.771102+0100 | INFO | STEP 3: Validating cleaned data...
+2026-05-25T13:05:37.773272+0100 | INFO | === VALIDATION REPORT ===
+2026-05-25T13:05:37.799180+0100 | INFO | STEP 4: Saving cleaned CSV...
+2026-05-25T13:05:39.035149+0100 | INFO | Cleaned data saved to: data\processed\airbnb_cleaned.csv
+2026-05-25T13:05:39.036264+0100 | INFO | STEP 5: Loading into PostgreSQL...
+2026-05-25T13:05:39.036963+0100 | INFO | Loading 48,884 rows into PostgreSQL table: 'cleaned_listings'
+2026-05-25T13:05:39.289617+0100 | INFO | Database engine created successfully.
+2026-05-25T13:06:13.132898+0100 | INFO | Successfully loaded 48,884 rows into 'cleaned_listings'.
+2026-05-25T13:06:13.134479+0100 | INFO | Database engine created successfully.
+2026-05-25T13:06:13.354236+0100 | INFO | Table 'cleaned_listings' verified: 48,884 rows.
