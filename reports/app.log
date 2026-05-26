@@ -154,3 +154,16 @@ Name: count, dtype: int64
 2026-05-25T14:03:51.311192+0100 | INFO | Successfully loaded 48,884 rows into 'featured_listings'.
 2026-05-25T14:03:51.312176+0100 | INFO | Database engine created successfully.
 2026-05-25T14:03:51.551969+0100 | INFO | Table 'featured_listings' verified: 48,884 rows.
+2026-05-25T14:18:55.472067+0100 | INFO | EDA: Loaded 48,884 rows from featured dataset.
+2026-05-25T14:19:01.174241+0100 | INFO | Chart saved: 01_price_distribution.png
+2026-05-25T14:19:04.125143+0100 | INFO | Chart saved: 02_price_by_room_type.png
+2026-05-25T14:19:06.264743+0100 | INFO | Chart saved: 03_price_by_borough.png
+2026-05-25T14:19:11.169270+0100 | INFO | Chart saved: 04_top_neighbourhoods_by_price.png
+2026-05-25T14:19:12.718388+0100 | INFO | Chart saved: 05_room_type_distribution.png
+2026-05-25T14:19:14.302745+0100 | INFO | Chart saved: 06_availability_distribution.png
+2026-05-25T14:19:15.513161+0100 | INFO | Chart saved: 07_reviews_per_month.png
+2026-05-25T14:19:18.073826+0100 | INFO | Chart saved: 08_correlation_heatmap.png
+2026-05-25T14:19:18.937439+0100 | INFO | Chart saved: 09_price_category_by_borough.png
+2026-05-25T14:19:19.805163+0100 | INFO | Chart saved: 10_top_hosts.png
+2026-05-25T14:19:20.678173+0100 | INFO | Chart saved: 11_minimum_nights.png
+2026-05-25T14:19:21.709169+0100 | INFO | Chart saved: 12_price_vs_reviews.png
