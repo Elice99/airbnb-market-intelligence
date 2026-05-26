@@ -167,3 +167,292 @@ Name: count, dtype: int64
 2026-05-25T14:19:19.805163+0100 | INFO | Chart saved: 10_top_hosts.png
 2026-05-25T14:19:20.678173+0100 | INFO | Chart saved: 11_minimum_nights.png
 2026-05-25T14:19:21.709169+0100 | INFO | Chart saved: 12_price_vs_reviews.png
+2026-05-26T13:58:03.288871+0100 | INFO | ML data ready: 38,833 rows, 14 features → target: price
+2026-05-26T13:58:03.347615+0100 | INFO | Train: 31,066 rows | Test: 7,767 rows
+2026-05-26T13:58:03.355835+0100 | INFO | Categorical features: ['neighbourhood_group', 'neighbourhood', 'room_type']
+2026-05-26T13:58:03.357085+0100 | INFO | Numeric features    : ['minimum_nights', 'number_of_reviews', 'reviews_per_month', 'calculated_host_listings_count', 'availability_365', 'is_reviewed', 'host_is_superhost_proxy', 'availability_ratio', 'is_long_term', 'name_length', 'days_since_last_review']
+2026-05-26T13:58:03.360138+0100 | INFO | Training LinearRegression...
+2026-05-26T13:58:03.715498+0100 | INFO | LinearRegression → RMSE: $97.25 | MAE: $58.70 | R²: 0.2540
+2026-05-26T13:58:03.757816+0100 | INFO | Training RandomForest...
+2026-05-26T13:58:21.225251+0100 | INFO | RandomForest → RMSE: $85.18 | MAE: $48.75 | R²: 0.4277
+2026-05-26T13:58:21.226579+0100 | INFO | Training XGBoost...
+2026-05-26T13:58:32.959820+0100 | INFO | XGBoost → RMSE: $83.55 | MAE: $47.81 | R²: 0.4494
+2026-05-26T13:58:33.005999+0100 | INFO | Best model: XGBoost — RMSE $83.55
+2026-05-26T13:58:33.114418+0100 | INFO | Best model saved to: models\best_model_xgboost.pkl
+2026-05-26T13:58:35.629410+0100 | INFO | Chart saved: 13_actual_vs_predicted.png
+2026-05-26T13:58:38.407659+0100 | INFO | Chart saved: 14_feature_importance.png
+2026-05-26T13:58:42.175176+0100 | INFO | Chart saved: 15_residuals.png
+2026-05-26T19:09:28.495500+0100 | INFO | STEP 1: Loading raw data...
+2026-05-26T19:09:28.497428+0100 | INFO | Loading raw data from: data\raw\AB_NYC_2019.csv
+2026-05-26T19:09:29.899721+0100 | INFO | Data loaded successfully. Rows: 48,895 | Columns: 16
+2026-05-26T19:09:29.909209+0100 | INFO | STEP 2: Cleaning...
+2026-05-26T19:09:29.914645+0100 | INFO | Starting cleaning pipeline...
+2026-05-26T19:09:30.111427+0100 | INFO | drop_zero_prices: Dropped 11 rows with price = 0.
+2026-05-26T19:09:30.200133+0100 | INFO | cap_price_outliers: Capping price at 99th percentile = $799.00
+2026-05-26T19:09:30.217430+0100 | INFO | cap_minimum_nights: Capping minimum_nights at 99th percentile = 45.0
+2026-05-26T19:09:30.431517+0100 | INFO | fill_missing_text: Filled missing name and host_name.
+2026-05-26T19:09:30.659567+0100 | INFO | fix_reviews_columns: Filled 10,052 missing review values.
+2026-05-26T19:09:30.976435+0100 | INFO | convert_last_review_date: 38,833 valid dates | 10,051 NaT (no review).
+2026-05-26T19:09:31.091416+0100 | INFO | strip_whitespace: Stripped whitespace from 5 text columns.
+2026-05-26T19:09:31.144426+0100 | INFO | standardize_text_case: Standardized neighbourhood columns.
+2026-05-26T19:09:31.220805+0100 | INFO | reset_dataframe_index: Index reset.
+2026-05-26T19:09:31.236397+0100 | INFO | Cleaning pipeline complete. Final shape: 48,884 rows × 16 columns.
+2026-05-26T19:09:31.237154+0100 | INFO | === VALIDATION REPORT ===
+2026-05-26T19:09:32.775301+0100 | INFO | Saved to: data\processed\airbnb_cleaned.csv
+2026-05-26T19:09:32.779447+0100 | INFO | STEP 3: Feature engineering...
+2026-05-26T19:09:32.780542+0100 | INFO | Starting feature engineering pipeline...
+2026-05-26T19:09:32.785875+0100 | INFO | add_price_per_review: Created price_per_review column.
+2026-05-26T19:09:32.790294+0100 | INFO | add_is_reviewed: 38,833 listings have reviews (79.4%).
+2026-05-26T19:09:32.793707+0100 | INFO | add_host_superhost_proxy: 5,635 proxy superhosts (11.5%).
+2026-05-26T19:09:32.796750+0100 | INFO | add_availability_ratio: Created availability_ratio column.
+2026-05-26T19:09:32.806871+0100 | INFO | add_availability_category: Created availability_category column.
+2026-05-26T19:09:32.879214+0100 | INFO | add_review_score_category: Distribution:
+review_score_category
+Low           22929
+Medium        10280
+No Reviews    10051
+High           5624
+Name: count, dtype: int64
+2026-05-26T19:09:32.892782+0100 | INFO | add_price_category: Distribution:
+price_category
+Mid        18710
+Budget     15236
+Premium    11581
+Luxury      3357
+Name: count, dtype: int64
+2026-05-26T19:09:32.896027+0100 | INFO | add_is_long_term: 4,505 long-term listings (9.2%).
+2026-05-26T19:09:32.912044+0100 | INFO | add_name_length: Avg name length = 36.9 chars.
+2026-05-26T19:09:32.938391+0100 | INFO | add_date_features: Date features created. 38,833 listings have a valid last_review date.
+2026-05-26T19:09:32.942701+0100 | INFO | add_log_features: Created 'log_price' ← price (target variable, heavy right skew)
+2026-05-26T19:09:32.945870+0100 | INFO | add_log_features: Created 'log_number_of_reviews' ← number_of_reviews (max 629, mean only 23)
+2026-05-26T19:09:32.951284+0100 | INFO | add_log_features: Created 'log_reviews_per_month' ← reviews_per_month (max 58.5, mean only 1.37)
+2026-05-26T19:09:32.956134+0100 | INFO | add_log_features: Created 'log_calculated_host_listings_count' ← calculated_host_listings_count (max 327, mean only 7)
+2026-05-26T19:09:32.960114+0100 | INFO | add_log_features: Created 'log_minimum_nights' ← minimum_nights (still skewed after capping at 45)
+2026-05-26T19:09:32.968374+0100 | INFO | add_log_features: Created 'log_days_since_last_review' ← days_since_last_review (max 3025, mean only 278)
+2026-05-26T19:09:32.978881+0100 | INFO | add_log_features: log_price OK — min=2.40, max=6.68, mean=4.73
+2026-05-26T19:09:32.979426+0100 | INFO | Feature engineering complete. Added 18 new columns. Total columns: 34
+2026-05-26T19:09:38.019443+0100 | INFO | Saved to: data\processed\airbnb_featured.csv
+2026-05-26T19:09:38.020756+0100 | INFO | STEP 4: Loading to PostgreSQL...
+2026-05-26T19:09:38.021559+0100 | INFO | Loading 48,884 rows into PostgreSQL table: 'cleaned_listings'
+2026-05-26T19:09:39.563630+0100 | INFO | Database engine created successfully.
+2026-05-26T19:11:17.872388+0100 | INFO | Successfully loaded 48,884 rows into 'cleaned_listings'.
+2026-05-26T19:11:17.887264+0100 | INFO | Loading 48,884 rows into PostgreSQL table: 'featured_listings'
+2026-05-26T19:11:17.888641+0100 | INFO | Database engine created successfully.
+2026-05-26T19:12:45.996515+0100 | INFO | Successfully loaded 48,884 rows into 'featured_listings'.
+2026-05-26T19:12:45.998480+0100 | INFO | Database engine created successfully.
+2026-05-26T19:12:46.407653+0100 | INFO | Table 'featured_listings' verified: 48,884 rows.
+2026-05-26T19:13:25.144868+0100 | INFO | ML data ready: 38,833 rows, 14 features → target: price
+2026-05-26T19:13:25.187591+0100 | INFO | Train: 31,066 rows | Test: 7,767 rows
+2026-05-26T19:13:25.191294+0100 | INFO | Categorical features: ['neighbourhood_group', 'neighbourhood', 'room_type']
+2026-05-26T19:13:25.191827+0100 | INFO | Numeric features    : ['availability_365', 'is_reviewed', 'host_is_superhost_proxy', 'availability_ratio', 'is_long_term', 'name_length', 'log_minimum_nights', 'log_number_of_reviews', 'log_reviews_per_month', 'log_calculated_host_listings_count', 'log_days_since_last_review']
+2026-05-26T19:13:25.194053+0100 | INFO | Training LinearRegression...
+2026-05-26T19:13:25.369293+0100 | INFO | LinearRegression → RMSE: $98.68 | MAE: $53.35 | R²: 0.2320
+2026-05-26T19:13:25.369774+0100 | INFO | Training RandomForest...
+2026-05-26T19:13:34.224493+0100 | INFO | RandomForest → RMSE: $86.42 | MAE: $45.65 | R²: 0.4109
+2026-05-26T19:13:34.225121+0100 | INFO | Training XGBoost...
+2026-05-26T19:13:37.879706+0100 | INFO | XGBoost → RMSE: $85.15 | MAE: $44.72 | R²: 0.4281
+2026-05-26T19:13:37.881407+0100 | INFO | Best model: XGBoost — RMSE $85.15
+2026-05-26T19:13:37.916258+0100 | INFO | Best model saved to: models\best_model_xgboost.pkl
+2026-05-26T19:13:39.802127+0100 | INFO | Chart saved: 13_actual_vs_predicted.png
+2026-05-26T19:13:41.411886+0100 | INFO | Chart saved: 14_feature_importance.png
+2026-05-26T19:13:42.575317+0100 | INFO | Chart saved: 15_residuals.png
+2026-05-26T19:33:22.695644+0100 | INFO | STEP 1: Loading raw data...
+2026-05-26T19:33:22.723718+0100 | INFO | Loading raw data from: data\raw\AB_NYC_2019.csv
+2026-05-26T19:33:23.408215+0100 | INFO | Data loaded successfully. Rows: 48,895 | Columns: 16
+2026-05-26T19:33:23.511806+0100 | INFO | STEP 2: Cleaning...
+2026-05-26T19:33:23.521185+0100 | INFO | Starting cleaning pipeline...
+2026-05-26T19:33:23.624916+0100 | INFO | drop_zero_prices: Dropped 11 rows with price = 0.
+2026-05-26T19:33:23.643520+0100 | INFO | cap_price_outliers: Capping price at 99th percentile = $799.00
+2026-05-26T19:33:23.738281+0100 | INFO | cap_minimum_nights: Capping minimum_nights at 99th percentile = 45.0
+2026-05-26T19:33:23.780006+0100 | INFO | fill_missing_text: Filled missing name and host_name.
+2026-05-26T19:33:23.808786+0100 | INFO | fix_reviews_columns: Filled 10,052 missing review values.
+2026-05-26T19:33:23.919173+0100 | INFO | convert_last_review_date: 38,833 valid dates | 10,051 NaT (no review).
+2026-05-26T19:33:23.981498+0100 | INFO | strip_whitespace: Stripped whitespace from 5 text columns.
+2026-05-26T19:33:24.023174+0100 | INFO | standardize_text_case: Standardized neighbourhood columns.
+2026-05-26T19:33:24.055970+0100 | INFO | reset_dataframe_index: Index reset.
+2026-05-26T19:33:24.075186+0100 | INFO | Cleaning pipeline complete. Final shape: 48,884 rows × 16 columns.
+2026-05-26T19:33:24.175903+0100 | INFO | === VALIDATION REPORT ===
+2026-05-26T19:33:26.531160+0100 | INFO | Saved to: data\processed\airbnb_cleaned.csv
+2026-05-26T19:33:26.534330+0100 | INFO | STEP 3: Feature engineering...
+2026-05-26T19:33:26.535705+0100 | INFO | Starting feature engineering pipeline...
+2026-05-26T19:33:26.546921+0100 | INFO | add_price_per_review: Created price_per_review column.
+2026-05-26T19:33:26.555675+0100 | INFO | add_is_reviewed: 38,833 listings have reviews (79.4%).
+2026-05-26T19:33:26.558190+0100 | INFO | add_host_superhost_proxy: 5,635 proxy superhosts (11.5%).
+2026-05-26T19:33:26.561068+0100 | INFO | add_availability_ratio: Created availability_ratio column.
+2026-05-26T19:33:26.575523+0100 | INFO | add_availability_category: Created availability_category column.
+2026-05-26T19:33:26.642767+0100 | INFO | add_review_score_category: Distribution:
+review_score_category
+Low           22929
+Medium        10280
+No Reviews    10051
+High           5624
+Name: count, dtype: int64
+2026-05-26T19:33:26.655261+0100 | INFO | add_price_category: Distribution:
+price_category
+Mid        18710
+Budget     15236
+Premium    11581
+Luxury      3357
+Name: count, dtype: int64
+2026-05-26T19:33:26.662016+0100 | INFO | add_is_long_term: 4,505 long-term listings (9.2%).
+2026-05-26T19:33:26.670570+0100 | INFO | add_name_length: Avg name length = 36.9 chars.
+2026-05-26T19:33:26.699565+0100 | INFO | add_date_features: Date features created. 38,833 listings have a valid last_review date.
+2026-05-26T19:33:26.713577+0100 | INFO | Feature engineering complete. Added 12 new columns. Total columns: 28
+2026-05-26T19:33:29.016563+0100 | INFO | Saved to: data\processed\airbnb_featured.csv
+2026-05-26T19:33:29.018412+0100 | INFO | STEP 4: Loading to PostgreSQL...
+2026-05-26T19:33:29.019267+0100 | INFO | Loading 48,884 rows into PostgreSQL table: 'cleaned_listings'
+2026-05-26T19:33:29.244605+0100 | INFO | Database engine created successfully.
+2026-05-26T19:34:47.640509+0100 | INFO | Successfully loaded 48,884 rows into 'cleaned_listings'.
+2026-05-26T19:34:47.641131+0100 | INFO | Loading 48,884 rows into PostgreSQL table: 'featured_listings'
+2026-05-26T19:34:47.642505+0100 | INFO | Database engine created successfully.
+2026-05-26T19:36:02.580577+0100 | INFO | Successfully loaded 48,884 rows into 'featured_listings'.
+2026-05-26T19:36:02.582217+0100 | INFO | Database engine created successfully.
+2026-05-26T19:36:02.948040+0100 | INFO | Table 'featured_listings' verified: 48,884 rows.
+2026-05-26T19:36:23.377227+0100 | INFO | ML data ready: 38,833 rows, 14 features → target: price
+2026-05-26T19:36:23.422869+0100 | INFO | Train: 31,066 rows | Test: 7,767 rows
+2026-05-26T19:36:23.432706+0100 | INFO | Categorical features: ['neighbourhood_group', 'neighbourhood', 'room_type']
+2026-05-26T19:36:23.454801+0100 | INFO | Numeric features    : ['minimum_nights', 'number_of_reviews', 'reviews_per_month', 'calculated_host_listings_count', 'availability_365', 'is_reviewed', 'host_is_superhost_proxy', 'availability_ratio', 'is_long_term', 'name_length', 'days_since_last_review']
+2026-05-26T19:36:23.459810+0100 | INFO | Training LinearRegression...
+2026-05-26T19:36:23.720986+0100 | INFO | LinearRegression → RMSE: $97.25 | MAE: $58.70 | R²: 0.2540
+2026-05-26T19:36:23.721635+0100 | INFO | Training RandomForest...
+2026-05-26T19:36:36.283589+0100 | INFO | RandomForest → RMSE: $85.15 | MAE: $48.71 | R²: 0.4281
+2026-05-26T19:36:36.284105+0100 | INFO | Training XGBoost...
+2026-05-26T19:36:39.001644+0100 | INFO | XGBoost → RMSE: $83.55 | MAE: $47.81 | R²: 0.4494
+2026-05-26T19:36:39.002166+0100 | INFO | Training XGBoost_Tuned...
+2026-05-26T19:36:42.604475+0100 | INFO | XGBoost_Tuned → RMSE: $84.73 | MAE: $48.48 | R²: 0.4338
+2026-05-26T19:36:42.606023+0100 | INFO | Best model: XGBoost — RMSE $83.55
+2026-05-26T19:36:42.606650+0100 | INFO | Cross-validating XGBoost...
+2026-05-26T19:37:02.550504+0100 | INFO | CV Results — Mean RMSE: $81.21 ±$1.26
+2026-05-26T19:37:02.872924+0100 | INFO | Best model saved to: models\best_model_xgboost.pkl
+2026-05-26T19:37:04.323623+0100 | INFO | Chart saved: 13_actual_vs_predicted.png
+2026-05-26T19:37:06.578301+0100 | INFO | Chart saved: 14_feature_importance.png
+2026-05-26T19:37:08.665705+0100 | INFO | Chart saved: 15_residuals.png
+2026-05-26T20:01:35.198720+0100 | INFO | STEP 1: Loading raw data...
+2026-05-26T20:01:35.200678+0100 | INFO | Loading raw data from: data\raw\AB_NYC_2019.csv
+2026-05-26T20:01:36.562376+0100 | INFO | Data loaded successfully. Rows: 48,895 | Columns: 16
+2026-05-26T20:01:36.672687+0100 | INFO | STEP 2: Cleaning...
+2026-05-26T20:01:36.709822+0100 | INFO | Starting cleaning pipeline...
+2026-05-26T20:01:36.836592+0100 | INFO | drop_zero_prices: Dropped 11 rows with price = 0.
+2026-05-26T20:01:36.938074+0100 | INFO | cap_price_outliers: Capping price at 99th percentile = $799.00
+2026-05-26T20:01:36.958754+0100 | INFO | cap_minimum_nights: Capping minimum_nights at 99th percentile = 45.0
+2026-05-26T20:01:37.100610+0100 | INFO | fill_missing_text: Filled missing name and host_name.
+2026-05-26T20:01:37.168162+0100 | INFO | fix_reviews_columns: Filled 10,052 missing review values.
+2026-05-26T20:01:37.271658+0100 | INFO | convert_last_review_date: 38,833 valid dates | 10,051 NaT (no review).
+2026-05-26T20:01:37.356643+0100 | INFO | strip_whitespace: Stripped whitespace from 5 text columns.
+2026-05-26T20:01:37.460344+0100 | INFO | standardize_text_case: Standardized neighbourhood columns.
+2026-05-26T20:01:37.523529+0100 | INFO | reset_dataframe_index: Index reset.
+2026-05-26T20:01:37.528857+0100 | INFO | Cleaning pipeline complete. Final shape: 48,884 rows × 16 columns.
+2026-05-26T20:01:37.564793+0100 | INFO | === VALIDATION REPORT ===
+2026-05-26T20:01:40.667002+0100 | INFO | Saved to: data\processed\airbnb_cleaned.csv
+2026-05-26T20:01:40.673985+0100 | INFO | STEP 3: Feature engineering...
+2026-05-26T20:01:40.674620+0100 | INFO | Starting feature engineering pipeline...
+2026-05-26T20:01:40.680678+0100 | INFO | add_price_per_review: Created price_per_review column.
+2026-05-26T20:01:40.684103+0100 | INFO | add_is_reviewed: 38,833 listings have reviews (79.4%).
+2026-05-26T20:01:40.691057+0100 | INFO | add_host_superhost_proxy: 5,635 proxy superhosts (11.5%).
+2026-05-26T20:01:40.696895+0100 | INFO | add_availability_ratio: Created availability_ratio column.
+2026-05-26T20:01:40.716116+0100 | INFO | add_availability_category: Created availability_category column.
+2026-05-26T20:01:40.818795+0100 | INFO | add_review_score_category: Distribution:
+review_score_category
+Low           22929
+Medium        10280
+No Reviews    10051
+High           5624
+Name: count, dtype: int64
+2026-05-26T20:01:40.830846+0100 | INFO | add_price_category: Distribution:
+price_category
+Mid        18710
+Budget     15236
+Premium    11581
+Luxury      3357
+Name: count, dtype: int64
+2026-05-26T20:01:40.837579+0100 | INFO | add_is_long_term: 4,505 long-term listings (9.2%).
+2026-05-26T20:01:40.855623+0100 | INFO | add_name_length: Avg name length = 36.9 chars.
+2026-05-26T20:01:40.890947+0100 | INFO | add_date_features: Date features created. 38,833 listings have a valid last_review date.
+2026-05-26T20:01:41.073933+0100 | INFO | add_neighbourhood_price_encoding: neighbourhood_median_price range: $34 – $799
+2026-05-26T20:01:41.083502+0100 | INFO | Feature engineering complete. Added 14 new columns. Total columns: 30
+2026-05-26T20:01:52.044251+0100 | INFO | Saved to: data\processed\airbnb_featured.csv
+2026-05-26T20:01:52.308619+0100 | INFO | STEP 4: Loading to PostgreSQL...
+2026-05-26T20:01:52.361804+0100 | INFO | Loading 48,884 rows into PostgreSQL table: 'cleaned_listings'
+2026-05-26T20:01:52.688780+0100 | INFO | Database engine created successfully.
+2026-05-26T20:03:45.602284+0100 | INFO | Successfully loaded 48,884 rows into 'cleaned_listings'.
+2026-05-26T20:03:45.603851+0100 | INFO | Loading 48,884 rows into PostgreSQL table: 'featured_listings'
+2026-05-26T20:03:45.606607+0100 | INFO | Database engine created successfully.
+2026-05-26T20:05:12.779824+0100 | INFO | Successfully loaded 48,884 rows into 'featured_listings'.
+2026-05-26T20:05:12.781077+0100 | INFO | Database engine created successfully.
+2026-05-26T20:05:13.094896+0100 | INFO | Table 'featured_listings' verified: 48,884 rows.
+2026-05-26T20:05:31.440275+0100 | INFO | STEP 1: Loading raw data...
+2026-05-26T20:05:31.473868+0100 | INFO | Loading raw data from: data\raw\AB_NYC_2019.csv
+2026-05-26T20:05:33.905695+0100 | INFO | Data loaded successfully. Rows: 48,895 | Columns: 16
+2026-05-26T20:05:34.356386+0100 | INFO | STEP 2: Cleaning...
+2026-05-26T20:05:34.452998+0100 | INFO | Starting cleaning pipeline...
+2026-05-26T20:05:34.609923+0100 | INFO | drop_zero_prices: Dropped 11 rows with price = 0.
+2026-05-26T20:05:34.626670+0100 | INFO | cap_price_outliers: Capping price at 99th percentile = $799.00
+2026-05-26T20:05:34.651952+0100 | INFO | cap_minimum_nights: Capping minimum_nights at 99th percentile = 45.0
+2026-05-26T20:05:34.718608+0100 | INFO | fill_missing_text: Filled missing name and host_name.
+2026-05-26T20:05:34.738689+0100 | INFO | fix_reviews_columns: Filled 10,052 missing review values.
+2026-05-26T20:05:34.821247+0100 | INFO | convert_last_review_date: 38,833 valid dates | 10,051 NaT (no review).
+2026-05-26T20:05:34.872433+0100 | INFO | strip_whitespace: Stripped whitespace from 5 text columns.
+2026-05-26T20:05:34.912845+0100 | INFO | standardize_text_case: Standardized neighbourhood columns.
+2026-05-26T20:05:34.915139+0100 | INFO | reset_dataframe_index: Index reset.
+2026-05-26T20:05:34.916617+0100 | INFO | Cleaning pipeline complete. Final shape: 48,884 rows × 16 columns.
+2026-05-26T20:05:34.918875+0100 | INFO | === VALIDATION REPORT ===
+2026-05-26T20:05:36.689749+0100 | INFO | Saved to: data\processed\airbnb_cleaned.csv
+2026-05-26T20:05:36.691688+0100 | INFO | STEP 3: Feature engineering...
+2026-05-26T20:05:36.692645+0100 | INFO | Starting feature engineering pipeline...
+2026-05-26T20:05:36.697888+0100 | INFO | add_price_per_review: Created price_per_review column.
+2026-05-26T20:05:36.702847+0100 | INFO | add_is_reviewed: 38,833 listings have reviews (79.4%).
+2026-05-26T20:05:36.715429+0100 | INFO | add_host_superhost_proxy: 5,635 proxy superhosts (11.5%).
+2026-05-26T20:05:36.779238+0100 | INFO | add_availability_ratio: Created availability_ratio column.
+2026-05-26T20:05:36.794299+0100 | INFO | add_availability_category: Created availability_category column.
+2026-05-26T20:05:37.163902+0100 | INFO | add_review_score_category: Distribution:
+review_score_category
+Low           22929
+Medium        10280
+No Reviews    10051
+High           5624
+Name: count, dtype: int64
+2026-05-26T20:05:37.305768+0100 | INFO | add_price_category: Distribution:
+price_category
+Mid        18710
+Budget     15236
+Premium    11581
+Luxury      3357
+Name: count, dtype: int64
+2026-05-26T20:05:37.353221+0100 | INFO | add_is_long_term: 4,505 long-term listings (9.2%).
+2026-05-26T20:05:37.375606+0100 | INFO | add_name_length: Avg name length = 36.9 chars.
+2026-05-26T20:05:37.464459+0100 | INFO | add_date_features: Date features created. 38,833 listings have a valid last_review date.
+2026-05-26T20:05:37.667505+0100 | INFO | add_neighbourhood_price_encoding: neighbourhood_median_price range: $34 – $799
+2026-05-26T20:05:37.693412+0100 | INFO | Feature engineering complete. Added 14 new columns. Total columns: 30
+2026-05-26T20:05:41.849318+0100 | INFO | Saved to: data\processed\airbnb_featured.csv
+2026-05-26T20:05:41.853380+0100 | INFO | STEP 4: Loading to PostgreSQL...
+2026-05-26T20:05:41.854364+0100 | INFO | Loading 48,884 rows into PostgreSQL table: 'cleaned_listings'
+2026-05-26T20:05:42.134185+0100 | INFO | Database engine created successfully.
+2026-05-26T20:07:18.814295+0100 | INFO | Successfully loaded 48,884 rows into 'cleaned_listings'.
+2026-05-26T20:07:18.815015+0100 | INFO | Loading 48,884 rows into PostgreSQL table: 'featured_listings'
+2026-05-26T20:07:18.816550+0100 | INFO | Database engine created successfully.
+2026-05-26T20:07:38.214092+0100 | INFO | ML data ready: 38,833 rows, 16 features → target: price
+2026-05-26T20:07:38.281362+0100 | INFO | Train: 31,066 rows | Test: 7,767 rows
+2026-05-26T20:07:38.285078+0100 | INFO | Categorical features: ['neighbourhood_group', 'neighbourhood', 'room_type']
+2026-05-26T20:07:38.286289+0100 | INFO | Numeric features    : ['neighbourhood_median_price', 'neighbourhood_group_median_price', 'minimum_nights', 'number_of_reviews', 'reviews_per_month', 'calculated_host_listings_count', 'availability_365', 'is_reviewed', 'host_is_superhost_proxy', 'availability_ratio', 'is_long_term', 'name_length', 'days_since_last_review']
+2026-05-26T20:09:14.395406+0100 | INFO | Successfully loaded 48,884 rows into 'featured_listings'.
+2026-05-26T20:09:14.396897+0100 | INFO | Database engine created successfully.
+2026-05-26T20:09:14.773120+0100 | INFO | Table 'featured_listings' verified: 48,884 rows.
+2026-05-26T20:11:14.819297+0100 | INFO | ML data ready: 38,833 rows, 16 features → target: price
+2026-05-26T20:11:14.876339+0100 | INFO | Train: 31,066 rows | Test: 7,767 rows
+2026-05-26T20:11:14.881319+0100 | INFO | Categorical features: ['neighbourhood_group', 'neighbourhood', 'room_type']
+2026-05-26T20:11:14.881818+0100 | INFO | Numeric features    : ['neighbourhood_median_price', 'neighbourhood_group_median_price', 'minimum_nights', 'number_of_reviews', 'reviews_per_month', 'calculated_host_listings_count', 'availability_365', 'is_reviewed', 'host_is_superhost_proxy', 'availability_ratio', 'is_long_term', 'name_length', 'days_since_last_review']
+2026-05-26T20:11:14.883422+0100 | INFO | Training LinearRegression...
+2026-05-26T20:11:15.232313+0100 | INFO | LinearRegression → RMSE: $90.58 | MAE: $53.19 | R²: 0.3529
+2026-05-26T20:11:15.232923+0100 | INFO | Training RandomForest...
+2026-05-26T20:11:47.895497+0100 | INFO | RandomForest → RMSE: $83.83 | MAE: $47.43 | R²: 0.4457
+2026-05-26T20:11:47.896472+0100 | INFO | Training XGBoost...
+2026-05-26T20:11:51.913062+0100 | INFO | XGBoost → RMSE: $83.10 | MAE: $47.20 | R²: 0.4553
+2026-05-26T20:11:51.913721+0100 | INFO | Training XGBoost_Tuned...
+2026-05-26T20:11:57.030065+0100 | INFO | XGBoost_Tuned → RMSE: $83.23 | MAE: $47.35 | R²: 0.4536
+2026-05-26T20:11:57.034521+0100 | INFO | Best model: XGBoost — RMSE $83.10
+2026-05-26T20:11:57.035537+0100 | INFO | Cross-validating XGBoost...
+2026-05-26T20:12:20.802504+0100 | INFO | CV Results — Mean RMSE: $80.65 ±$1.31
+2026-05-26T20:12:21.025389+0100 | INFO | Best model saved to: models\best_model_xgboost.pkl
+2026-05-26T20:12:23.180697+0100 | INFO | Chart saved: 13_actual_vs_predicted.png
+2026-05-26T20:12:25.284943+0100 | INFO | Chart saved: 14_feature_importance.png
+2026-05-26T20:12:27.796049+0100 | INFO | Chart saved: 15_residuals.png

@@ -312,6 +312,64 @@ def add_date_features(df: pd.DataFrame) -> pd.DataFrame:
 
     return df
 
+# ─────────────────────────────────────────
+# 11. NEIGHBOURHOOD MEDIAN PRICE ENCODING
+# ─────────────────────────────────────────
+
+def add_neighbourhood_price_encoding(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Replaces raw neighbourhood names with their median price.
+
+    Why this works better than ordinal encoding:
+    OrdinalEncoder assigns arbitrary numbers — 'Tribeca'=187,
+    'Bronx'=23. The model has no idea 187 means expensive.
+
+    Median price encoding gives the model real signal:
+    'Tribeca' → $295, 'Fordham' → $55.
+    Now the model knows the actual price context of each area.
+
+    This is called Target Encoding — encoding a categorical
+    variable using the target variable's statistics.
+
+    We calculate medians on the FULL dataset (before split)
+    because neighbourhoods are stable geographic facts,
+    not leakage-prone individual rows.
+
+    We create NEW columns so originals are preserved:
+    - neighbourhood_median_price
+    - neighbourhood_group_median_price
+    """
+
+    # Calculate median price per neighbourhood
+    neigh_median = (
+        df.groupby("neighbourhood")["price"]
+        .median()
+        .rename("neighbourhood_median_price")
+    )
+
+    # Calculate median price per borough
+    group_median = (
+        df.groupby("neighbourhood_group")["price"]
+        .median()
+        .rename("neighbourhood_group_median_price")
+    )
+
+    # Map the medians back to each row
+    df["neighbourhood_median_price"] = (
+        df["neighbourhood"].map(neigh_median)
+    )
+    df["neighbourhood_group_median_price"] = (
+        df["neighbourhood_group"].map(group_median)
+    )
+
+    logger.info(
+        f"add_neighbourhood_price_encoding: "
+        f"neighbourhood_median_price range: "
+        f"${df['neighbourhood_median_price'].min():.0f} – "
+        f"${df['neighbourhood_median_price'].max():.0f}"
+    )
+
+    return df
 
 # ─────────────────────────────────────────
 # MAIN PIPELINE
@@ -337,6 +395,7 @@ def run_feature_engineering(df: pd.DataFrame) -> pd.DataFrame:
     df = add_is_long_term(df)
     df = add_name_length(df)
     df = add_date_features(df)
+    df = add_neighbourhood_price_encoding(df)
 
     new_cols = df.shape[1] - original_cols
 
@@ -359,7 +418,7 @@ def print_feature_summary(df: pd.DataFrame) -> None:
         "availability_ratio", "availability_category",
         "review_score_category", "price_category", "is_long_term",
         "name_length", "last_review_year", "last_review_month",
-        "days_since_last_review"
+        "days_since_last_review", "neighbourhood_price_encoding"
     ]
 
     print("\n" + "=" * 55)

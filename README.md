@@ -304,9 +304,11 @@ docker-compose up --build
 
 | Model | RMSE | MAE | R² |
 |-------|------|-----|----|
-| Linear Regression | — | — | — |
-| Random Forest | — | — | — |
-| XGBoost | — | — | — |
+| Linear Regression | $90.58 | $53.19 | 0.3529 |
+| Random Forest | $83.83 | $47.43 | 0.4457 |
+| XGBoost ✓ | $83.10 | $47.20 | 0.4553 |
+
+**Cross-Validation (XGBoost):** Mean RMSE $80.65 ±$1.31 across 5 folds
 
 ---
 

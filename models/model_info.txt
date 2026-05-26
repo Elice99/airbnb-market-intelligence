@@ -1,0 +1,4 @@
+Best Model   : XGBoost
+RMSE         : $83.10
+MAE          : $47.20
+R²           : 0.4553

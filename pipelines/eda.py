@@ -4,9 +4,7 @@
 # Run after feature_engineer.py — expects airbnb_featured.csv
 
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib.ticker as mticker
 import seaborn as sns
 import os
 from pipelines.logger import logger
