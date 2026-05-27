@@ -456,3 +456,23 @@ Name: count, dtype: int64
 2026-05-26T20:12:23.180697+0100 | INFO | Chart saved: 13_actual_vs_predicted.png
 2026-05-26T20:12:25.284943+0100 | INFO | Chart saved: 14_feature_importance.png
 2026-05-26T20:12:27.796049+0100 | INFO | Chart saved: 15_residuals.png
+2026-05-27T12:04:37.128972+0100 | INFO | Starting Airbnb Price Prediction API...
+2026-05-27T12:04:44.286538+0100 | INFO | Model loaded successfully from: models\best_model_xgboost.pkl
+2026-05-27T12:04:44.287133+0100 | INFO | API startup complete.
+2026-05-27T12:11:28.996306+0100 | INFO | Prediction request: Manhattan | Entire home/apt | nights=2
+2026-05-27T12:11:29.460802+0100 | ERROR | Prediction failed: columns are missing: {'reviews_per_month', 'calculated_host_listings_count', 'days_since_last_review', 'minimum_nights', 'number_of_reviews'}
+2026-05-27T12:18:06.983385+0100 | INFO | API shutting down.
+2026-05-27T12:21:29.643171+0100 | INFO | Starting Airbnb Price Prediction API...
+2026-05-27T12:21:37.670243+0100 | INFO | Model loaded successfully from: models\best_model_xgboost.pkl
+2026-05-27T12:21:37.690904+0100 | INFO | API startup complete.
+2026-05-27T12:27:24.384074+0100 | INFO | API shutting down.
+2026-05-27T12:28:27.040225+0100 | INFO | Starting Airbnb Price Prediction API...
+2026-05-27T12:28:39.504175+0100 | INFO | Model loaded successfully from: models\best_model_xgboost.pkl
+2026-05-27T12:28:39.553675+0100 | INFO | API startup complete.
+2026-05-27T12:28:51.560052+0100 | INFO | API shutting down.
+2026-05-27T12:30:09.189472+0100 | INFO | Starting Airbnb Price Prediction API...
+2026-05-27T12:30:14.757169+0100 | INFO | Model loaded successfully from: models\best_model_xgboost.pkl
+2026-05-27T12:30:14.759320+0100 | INFO | API startup complete.
+2026-05-27T12:30:49.131196+0100 | INFO | Prediction request: Manhattan | Entire home/apt | nights=2
+2026-05-27T12:30:49.491445+0100 | INFO | Prediction result: $243.58
+2026-05-27T12:33:14.012970+0100 | INFO | API shutting down.
