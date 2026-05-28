@@ -476,3 +476,132 @@ Name: count, dtype: int64
 2026-05-27T12:30:49.131196+0100 | INFO | Prediction request: Manhattan | Entire home/apt | nights=2
 2026-05-27T12:30:49.491445+0100 | INFO | Prediction result: $243.58
 2026-05-27T12:33:14.012970+0100 | INFO | API shutting down.
+2026-05-27T12:33:22.822125+0100 | INFO | Starting Airbnb Price Prediction API...
+2026-05-27T12:33:29.414910+0100 | INFO | Model loaded successfully from: models\best_model_xgboost.pkl
+2026-05-27T12:33:29.442440+0100 | INFO | API startup complete.
+2026-05-28T15:46:59.588684+0100 | INFO | Starting Airbnb Price Prediction API...
+2026-05-28T15:47:21.177492+0100 | INFO | Model loaded successfully from: models\best_model_xgboost.pkl
+2026-05-28T15:47:21.178210+0100 | INFO | API startup complete.
+2026-05-28T16:13:17.923375+0100 | INFO | API shutting down.
+2026-05-28T16:13:31.622873+0100 | INFO | Starting Airbnb Price Prediction API...
+2026-05-28T16:13:36.336077+0100 | INFO | Model loaded successfully from: models\best_model_xgboost.pkl
+2026-05-28T16:13:36.352246+0100 | INFO | API startup complete.
+2026-05-28T16:13:51.650836+0100 | INFO | API shutting down.
+2026-05-28T16:14:00.130843+0100 | INFO | Starting Airbnb Price Prediction API...
+2026-05-28T16:14:08.731204+0100 | INFO | Model loaded successfully from: models\best_model_xgboost.pkl
+2026-05-28T16:14:08.734514+0100 | INFO | API startup complete.
+2026-05-28T16:14:50.057931+0100 | INFO | API shutting down.
+2026-05-28T16:14:55.416631+0100 | INFO | Starting Airbnb Price Prediction API...
+2026-05-28T16:15:04.741999+0100 | INFO | Model loaded successfully from: models\best_model_xgboost.pkl
+2026-05-28T16:15:04.783941+0100 | INFO | API startup complete.
+2026-05-28T16:15:41.559901+0100 | INFO | API shutting down.
+2026-05-28T16:15:46.752668+0100 | INFO | Starting Airbnb Price Prediction API...
+2026-05-28T16:15:52.821928+0100 | INFO | Model loaded successfully from: models\best_model_xgboost.pkl
+2026-05-28T16:15:52.823113+0100 | INFO | API startup complete.
+2026-05-28T16:16:28.865752+0100 | INFO | API shutting down.
+2026-05-28T16:16:36.288213+0100 | INFO | Starting Airbnb Price Prediction API...
+2026-05-28T16:16:43.175593+0100 | INFO | Model loaded successfully from: models\best_model_xgboost.pkl
+2026-05-28T16:16:43.211830+0100 | INFO | API startup complete.
+2026-05-28T16:16:59.973329+0100 | INFO | API shutting down.
+2026-05-28T16:17:04.699342+0100 | INFO | Starting Airbnb Price Prediction API...
+2026-05-28T16:17:08.566266+0100 | INFO | Model loaded successfully from: models\best_model_xgboost.pkl
+2026-05-28T16:17:08.566866+0100 | INFO | API startup complete.
+2026-05-28T16:17:37.300402+0100 | INFO | API shutting down.
+2026-05-28T16:17:42.502078+0100 | INFO | Starting Airbnb Price Prediction API...
+2026-05-28T16:17:46.671574+0100 | INFO | Model loaded successfully from: models\best_model_xgboost.pkl
+2026-05-28T16:17:46.672276+0100 | INFO | API startup complete.
+2026-05-28T16:32:56.289940+0100 | INFO | API shutting down.
+2026-05-28T16:33:02.382022+0100 | INFO | Starting Airbnb Price Prediction API...
+2026-05-28T16:33:08.613319+0100 | INFO | Model loaded successfully from: models\best_model_xgboost.pkl
+2026-05-28T16:33:08.622177+0100 | INFO | API startup complete.
+2026-05-28T16:33:22.732613+0100 | INFO | API shutting down.
+2026-05-28T16:33:27.644603+0100 | INFO | Starting Airbnb Price Prediction API...
+2026-05-28T16:33:32.313447+0100 | INFO | Model loaded successfully from: models\best_model_xgboost.pkl
+2026-05-28T16:33:32.314046+0100 | INFO | API startup complete.
+2026-05-28T16:35:04.334212+0100 | INFO | Starting Airbnb Price Prediction API...
+2026-05-28T16:35:12.522490+0100 | INFO | Model loaded successfully from: models\best_model_xgboost.pkl
+2026-05-28T16:35:12.545886+0100 | INFO | API startup complete.
+2026-05-28T16:39:56.122932+0100 | INFO | API shutting down.
+2026-05-28T16:40:01.312064+0100 | INFO | API shutting down.
+2026-05-28T16:40:09.254645+0100 | INFO | Starting Airbnb Price Prediction API...
+2026-05-28T16:40:14.260162+0100 | INFO | Model loaded successfully from: models\best_model_xgboost.pkl
+2026-05-28T16:40:14.271553+0100 | INFO | API startup complete.
+2026-05-28T16:40:21.500900+0100 | INFO | Starting Airbnb Price Prediction API...
+2026-05-28T16:40:30.469005+0100 | INFO | Model loaded successfully from: models\best_model_xgboost.pkl
+2026-05-28T16:40:30.505494+0100 | INFO | API startup complete.
+2026-05-28T16:40:35.862565+0100 | INFO | API shutting down.
+2026-05-28T16:40:46.602469+0100 | INFO | Starting Airbnb Price Prediction API...
+2026-05-28T16:40:48.581163+0100 | INFO | API shutting down.
+2026-05-28T16:40:52.638486+0100 | INFO | Model loaded successfully from: models\best_model_xgboost.pkl
+2026-05-28T16:40:52.656214+0100 | INFO | API startup complete.
+2026-05-28T16:40:58.868031+0100 | INFO | Starting Airbnb Price Prediction API...
+2026-05-28T16:41:06.110351+0100 | INFO | Model loaded successfully from: models\best_model_xgboost.pkl
+2026-05-28T16:41:06.112620+0100 | INFO | API startup complete.
+2026-05-28T16:41:15.464531+0100 | INFO | API shutting down.
+2026-05-28T16:41:22.868822+0100 | INFO | Starting Airbnb Price Prediction API...
+2026-05-28T16:41:26.685877+0100 | INFO | API shutting down.
+2026-05-28T16:41:29.618697+0100 | INFO | Model loaded successfully from: models\best_model_xgboost.pkl
+2026-05-28T16:41:29.674149+0100 | INFO | API startup complete.
+2026-05-28T16:41:34.753874+0100 | INFO | Starting Airbnb Price Prediction API...
+2026-05-28T16:41:40.401980+0100 | INFO | Model loaded successfully from: models\best_model_xgboost.pkl
+2026-05-28T16:41:40.402541+0100 | INFO | API startup complete.
+2026-05-28T16:41:55.013894+0100 | INFO | API shutting down.
+2026-05-28T16:41:58.860675+0100 | INFO | API shutting down.
+2026-05-28T16:42:01.400381+0100 | INFO | Starting Airbnb Price Prediction API...
+2026-05-28T16:42:09.307491+0100 | INFO | Starting Airbnb Price Prediction API...
+2026-05-28T16:42:10.200255+0100 | INFO | Model loaded successfully from: models\best_model_xgboost.pkl
+2026-05-28T16:42:10.232183+0100 | INFO | API startup complete.
+2026-05-28T16:42:14.130896+0100 | INFO | Model loaded successfully from: models\best_model_xgboost.pkl
+2026-05-28T16:42:14.133065+0100 | INFO | API startup complete.
+2026-05-28T16:49:26.358152+0100 | INFO | Health check: model_loaded=True
+2026-05-28T16:55:50.710888+0100 | INFO | Health check: model_loaded=True
+2026-05-28T16:56:06.803709+0100 | INFO | Health check: model_loaded=True
+2026-05-28T16:56:07.402168+0100 | INFO | Health check: model_loaded=True
+2026-05-28T16:56:07.900202+0100 | INFO | Health check: model_loaded=True
+2026-05-28T16:56:10.706351+0100 | INFO | Health check: model_loaded=True
+2026-05-28T16:56:10.908885+0100 | INFO | Health check: model_loaded=True
+2026-05-28T16:56:11.130293+0100 | INFO | Health check: model_loaded=True
+2026-05-28T16:56:12.029835+0100 | INFO | Health check: model_loaded=True
+2026-05-28T16:56:12.408760+0100 | INFO | Health check: model_loaded=True
+2026-05-28T16:56:12.422343+0100 | INFO | Health check: model_loaded=True
+2026-05-28T16:56:13.001613+0100 | INFO | Health check: model_loaded=True
+2026-05-28T16:56:13.238307+0100 | INFO | Health check: model_loaded=True
+2026-05-28T16:56:13.403538+0100 | INFO | Health check: model_loaded=True
+2026-05-28T16:56:13.704576+0100 | INFO | Health check: model_loaded=True
+2026-05-28T16:56:13.721679+0100 | INFO | Health check: model_loaded=True
+2026-05-28T16:56:13.935969+0100 | INFO | Health check: model_loaded=True
+2026-05-28T16:56:14.232722+0100 | INFO | Health check: model_loaded=True
+2026-05-28T16:56:14.430697+0100 | INFO | Health check: model_loaded=True
+2026-05-28T16:56:14.585476+0100 | INFO | Health check: model_loaded=True
+2026-05-28T16:56:14.900471+0100 | INFO | Health check: model_loaded=True
+2026-05-28T16:56:24.007273+0100 | INFO | Health check: model_loaded=True
+2026-05-28T16:56:35.299235+0100 | INFO | Health check: model_loaded=True
+2026-05-28T16:56:39.641298+0100 | INFO | Health check: model_loaded=True
+2026-05-28T16:56:42.319318+0100 | INFO | Prediction request: Manhattan | Entire home/apt | nights=10
+2026-05-28T16:56:43.078064+0100 | INFO | Prediction result: $270.56
+2026-05-28T17:04:20.795207+0100 | INFO | API shutting down.
+2026-05-28T17:04:30.531314+0100 | INFO | API shutting down.
+2026-05-28T17:04:38.609669+0100 | INFO | Starting Airbnb Price Prediction API...
+2026-05-28T17:04:51.728961+0100 | INFO | Starting Airbnb Price Prediction API...
+2026-05-28T17:04:52.245612+0100 | INFO | Model loaded successfully from: models\best_model_xgboost.pkl
+2026-05-28T17:04:52.248793+0100 | INFO | API startup complete.
+2026-05-28T17:04:59.409177+0100 | INFO | Model loaded successfully from: models\best_model_xgboost.pkl
+2026-05-28T17:04:59.454789+0100 | INFO | API startup complete.
+2026-05-28T17:05:12.890762+0100 | INFO | API shutting down.
+2026-05-28T17:05:19.337138+0100 | INFO | API shutting down.
+2026-05-28T17:05:21.174068+0100 | INFO | Starting Airbnb Price Prediction API...
+2026-05-28T17:05:29.108781+0100 | INFO | Model loaded successfully from: models\best_model_xgboost.pkl
+2026-05-28T17:05:29.160765+0100 | INFO | API startup complete.
+2026-05-28T17:05:32.524897+0100 | INFO | Starting Airbnb Price Prediction API...
+2026-05-28T17:05:39.979070+0100 | INFO | Model loaded successfully from: models\best_model_xgboost.pkl
+2026-05-28T17:05:39.993279+0100 | INFO | API startup complete.
+2026-05-28T17:06:07.158337+0100 | INFO | API shutting down.
+2026-05-28T17:06:14.457005+0100 | INFO | API shutting down.
+2026-05-28T17:06:16.940683+0100 | INFO | Starting Airbnb Price Prediction API...
+2026-05-28T17:06:25.232456+0100 | INFO | Model loaded successfully from: models\best_model_xgboost.pkl
+2026-05-28T17:06:25.266404+0100 | INFO | API startup complete.
+2026-05-28T17:06:26.720859+0100 | INFO | Starting Airbnb Price Prediction API...
+2026-05-28T17:06:33.805627+0100 | INFO | Model loaded successfully from: models\best_model_xgboost.pkl
+2026-05-28T17:06:33.820913+0100 | INFO | API startup complete.
+2026-05-28T17:06:49.816628+0100 | INFO | API shutting down.
+2026-05-28T17:07:00.576696+0100 | INFO | API shutting down.
